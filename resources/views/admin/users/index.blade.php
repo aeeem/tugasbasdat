@@ -16,17 +16,18 @@
     <tbody>
     	@if ($users)
 @foreach ($users as $user){{--perulangan untuk setiap users [array] di masukan ke dalam user secara --}}
-{{-- expr --}}
-
+{!! Form::open(['method' => 'post', 'action'=>'AdminUsersController@index']) !!}
 
       <tr>
       <td>{{ $user ->id }}</td>
       <td><a href="{{Route('users.edit',$user->id)}}">{{ $user ->name }}</a></td>
       <td>{{ $user ->email }}</td>
-	    <td>{{ $user ->created_at->diffForHumans()}}</td>
+      <td>{{ $user ->created_at->diffForHumans()}}</td>
       <td>{{ $user ->sedang_aktif == 1 ? "Aktif" : "Tidak aktif"}}</td>
       <td>{{ $user ->updated_at->diffForHumans() }}</td>
       <td>{{$user ->role->name}}</td>
+     
+  {!! Form::close() !!}
    @endforeach
 
 

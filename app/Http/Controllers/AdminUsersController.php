@@ -29,9 +29,9 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-
+        $user=User::all();
         $roles = Role::pluck('name','id')->all();
-        return view('admin.users.create',compact('roles'));
+        return view('admin.users.create',compact('roles','user'));
     }
 
     /**
@@ -49,7 +49,7 @@ class AdminUsersController extends Controller
             $input=$request->all();
             $input['password']=bcrypt($request->password);
         }
-        $create=$user->create($input);
+        User::create($input);
 
         return redirect('admin/users');
         // return $request->all();

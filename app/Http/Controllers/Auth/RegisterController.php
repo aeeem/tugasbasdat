@@ -61,10 +61,7 @@ class RegisterController extends Controller
      * @return \Kepolisian\User
      */
 
-    public function{
-
-
-    }
+  
     protected function create(array $data)
     {
         return User::create([

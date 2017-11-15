@@ -27,7 +27,7 @@ class UserEditRequest extends FormRequest
             'name'=>'required',
             'email'=>'required',
             'role_id'=>'required',
-            'status'=>'required'
+           
         ];
     }
 }

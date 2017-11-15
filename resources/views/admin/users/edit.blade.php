@@ -18,8 +18,8 @@
    		{!!  Form::select('role_id',$role ,null ,['class' => 'form-control'])!!}
 	</div>
 <div class="form-group">
-   {!!  Form::label('status', 'Status')!!}
-   {!!  Form::select('status',array(1=>'Aktif',0=>'Tidak Aktif') ,null ,['class' => 'form-control'])!!}
+   {!!  Form::label('sedang_aktif', 'Status')!!}
+   {!!  Form::select('sedang_aktif',array(1=>'Aktif',0=>'Tidak Aktif') ,null ,['class' => 'form-control'])!!}
 </div>
 
 		<div class="form-group">
