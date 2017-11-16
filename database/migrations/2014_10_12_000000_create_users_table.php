@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->integer('sedang_aktif')->default(0);
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('alamat');
+            // $table->string('alamat');
             $table->rememberToken();
             $table->timestamps();
         });
