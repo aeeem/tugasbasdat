@@ -26,7 +26,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
     public function role(){
         return $this->belongsTo('Kepolisian\Role');
     }
-}
+
+
+    public function administrator(){
+        if ($this->role->name == "admin"){
+
+            return true;
+        }
+        
+
+        return false;
+    }   
+
+    }
+

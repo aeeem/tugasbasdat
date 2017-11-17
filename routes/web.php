@@ -12,12 +12,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+
 Route::get('/admin',function(){
 	return view('admin.index');
 });
-Route::resource('admin/users','AdminUsersController');
-//Auth::routes();
+Route::group(['middleware'=>'Admin'],function(){
+	Route::resource('admin/users','AdminUsersController');
+	Route::get('/home', 'HomeController@index')->name('home');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+	
