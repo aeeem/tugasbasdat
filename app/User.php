@@ -2,6 +2,8 @@
 
 namespace Kepolisian;
 
+
+use Kepolisian\Http\Middleware\Admin;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -34,15 +36,19 @@ class User extends Authenticatable
     }
 
 
-    public function administrator(){
-        if ($this->role->name == "admin"){
+    public function IsAdmin(){
+       if( (($this->role->name == "administrator")||($this->role->name == "admin")) && $this->sedang_aktif == 1){
+
 
             return true;
+
         }
-        
+
 
         return false;
-    }   
+}
+}      
+   
 
-    }
+
 

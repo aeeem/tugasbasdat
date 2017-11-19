@@ -17,12 +17,13 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('role_id')->index()->unsigned()->nullable();
-            $table->integer('sedang_aktif')->default(0);
+            $table->enum('sedang_aktif',[1,0])->default(1);
             $table->string('email')->unique();
             $table->string('password');
             // $table->string('alamat');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('dihapus')->unsigned()->nullable();
         });
     }
 

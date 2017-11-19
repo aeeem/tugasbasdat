@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \Kepolisian\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Kepolisian\Http\Middleware\TrustProxies::class,
+        // \Kepolisian\Http\Middleware\Admin::class,
     ];
 
     /**
@@ -31,11 +32,11 @@ class Kernel extends HttpKernel
             \Kepolisian\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+             \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Kepolisian\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Kepolisian\Http\Middleware\Admin::class,
+            // \Kepolisian\Http\Middleware\Admin::class,
         ],
 
         'api' => [
@@ -58,6 +59,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \Kepolisian\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'Admin' => \Kepolisian\Http\Middleware\Admin::class,
+        // 'Admin' => \Kepolisian\Http\Middleware\Admin::class,
+        'admin' => \Kepolisian\Http\Middleware\administrator::class,
     ];
 }
