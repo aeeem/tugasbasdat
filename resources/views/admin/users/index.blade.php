@@ -25,7 +25,7 @@
       <td>{{ $user ->created_at->diffForHumans()}}</td>
       <td>{{ $user ->sedang_aktif == 1 ? "Aktif" : "Tidak aktif"}}</td>
       <td>{{ $user ->updated_at->diffForHumans() }}</td>
-      <td>{{$user ->role->name}}</td>
+      <td>{{ $user->role->name}}</td>
      
   {!! Form::close() !!}
    @endforeach

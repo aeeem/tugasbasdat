@@ -36,6 +36,11 @@ class User extends Authenticatable
     }
 
 
+    public function posts(){
+        return $this->hasmany('Kepolisian\Post');
+        }
+
+
     public function IsAdmin(){
        if( (($this->role->name == "administrator")||($this->role->name == "admin")) && $this->sedang_aktif == 1){
 

@@ -1,9 +1,12 @@
 <?php
 
 namespace Kepolisian\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Kepolisian\Http\Requests\PostCreateRequest;
+use Kepolisian\Http\Requests\PostEditRequest;
+use Kepolisian\Post;
+use Kepolisian\User;
 class AdminPostController extends Controller
 {
     /**
@@ -12,8 +15,9 @@ class AdminPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {  
+        $post = Post::all();
+        return view('admin.posts.index',compact('post'));
     }
 
     /**
@@ -23,7 +27,7 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.posts.create');
     }
 
     /**
@@ -32,9 +36,13 @@ class AdminPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
-        //
+      $input= $request->all();
+       $user=Auth::user();
+    
+        $user->posts()->create($input);
+        return redirect('/admin/post');
     }
 
     /**
@@ -56,7 +64,8 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post=Post::findOrFail($id);
+        return view('admin.posts.edit',compact('post'));
     }
 
     /**
@@ -66,9 +75,12 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostEditRequest $request, $id)
     {
-        //
+        $input=$request->all();
+        $post=Post::findOrFail($id);
+        $post->update($input);
+        return redirect('/admin/post');
     }
 
     /**

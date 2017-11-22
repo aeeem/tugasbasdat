@@ -23,10 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin',function(){
 	return view('admin.index');
 })->middleware('admin');
-	Route::resource('admin/users','AdminUsersController')->middleware('admin');
-	Route::resource('admin/posts','AdminPostController')->middleware('admin');
+Route::resource('admin/users','AdminUsersController')->middleware('admin');
+Route::resource('admin/post','AdminPostController')->middleware('admin');
+// Route::get('/kepolisian',function(){
+// 	return view('admin.kepolisian');
 
 
 
-
-	
+// });

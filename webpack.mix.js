@@ -19,15 +19,12 @@ mix.js('resources/assets/js/app.js', 'public/js')
                 'resources/assets/css/libs/bootstrap.css',
                 'resources/assets/css/libs/font-awesome.css',
                 'resources/assets/css/libs/metisMenu.css',
-                'resources/assets/css/libs/sb-admin-2.css'
-
+                'resources/assets/css/libs/sb-admin-2.css',
+                'resources/assets/css/libs/normalize.css',
+                'resources/assets/css/libs/pushy.css',
+                'resources/assets/css/libs/demo.css',
 
             ], './public/css/libs.css')
-
-
-
-
-
 
             .scripts([
 
@@ -36,11 +33,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
                 'resources/assets/js/libs/bootstrap.js',
                 'resources/assets/js/libs/metisMenu.js',
                 'resources/assets/js/libs/sb-admin-2.js',
-                'resources/assets/js/libs/scripts.js'
+                'resources/assets/js/libs/scripts.js',
+            
 
+            ], './public/js/libs.js')
 
-
-
-
-
-            ], './public/js/libs.js');
+ 

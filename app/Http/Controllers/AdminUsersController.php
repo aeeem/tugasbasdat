@@ -3,6 +3,7 @@
 namespace Kepolisian\Http\Controllers;
 use Kepolisian\User;
 use Kepolisian\Role;
+use Kepolisian\Post;
 use Illuminate\Http\Request;
 use Kepolisian\Http\Requests\UserCreateRequest;
 use Kepolisian\Http\Requests\UserEditRequest;
