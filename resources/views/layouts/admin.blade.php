@@ -14,6 +14,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
+
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
 
@@ -144,11 +145,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/posts">All Posts</a>
+                                <a href="{{route('post.index')}}">All Posts</a>
                             </li>
 
                             <li>
-                                <a href="/posts/create">Create Post</a>
+                                <a href="{{route('post.create')}}">Create Post</a>
                             </li>
 
                         </ul>
@@ -353,15 +354,43 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
+      </script>
+<script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/libs.js')}}"></script>
+{{-- <script type="text/javascript">
+   
+    $(document).on('click','#delete', function(e) {
+        e.preventDefault();
+        var file= this.attr('data-file'),
+            formId='form#'+file,
+            parent=this.parents(formId);
+       swal({
+      title: "Confirm?",
+      text: "Are you sure?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Back"
+      }
+    ).then(
+      function (isConfirm) {
+        if (isConfirm) {
+         
+          parent.submit();
+        }
+      },
+      function() {
+         console.log('BACK');
+      }
+    );
+    });
 
-
+</script> --}}
+  
 @yield('footer')
 
-
-
-
-
+ @include('sweet::alert')
 </body>
 
 </html>

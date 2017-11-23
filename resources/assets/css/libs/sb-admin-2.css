@@ -26,6 +26,34 @@ body {
         border-left: 1px solid #e7e7e7;
     }
 }
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color: #bfbfbf;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+.btn-link2{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color: #bfbfbf;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+.btn-link:hover{
+    color: #990000;
+}
+.btn-link2:hover{
+    color: #33ccff;
+}
 
 .navbar-top-links {
     margin-right: 0;

@@ -5,7 +5,7 @@
  */
 
 body {
-    padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 footer {
@@ -8360,6 +8360,34 @@ body {
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
+}
+.btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color: #bfbfbf;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+.btn-link2{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color: #bfbfbf;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+.btn-link:hover{
+    color: #990000;
+}
+.btn-link2:hover{
+    color: #33ccff;
 }
 
 .navbar-top-links {

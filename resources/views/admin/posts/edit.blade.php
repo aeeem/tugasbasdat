@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 {!! Form::label('kategory_id', 'Cateagory:') !!}
-                {!! Form::select('kategory_id   ', [''=>'Choose Categories'], null, ['class'=>'form-control'])!!}
+                {!! Form::select('kategory_id   ', [''=>'Pilih Kategori'], null, ['class'=>'form-control'])!!}
             </div>
 
 {{-- 
@@ -39,7 +39,9 @@
 
 
              <div class="form-group">
-                {!! Form::submit('Buat Post', ['class'=>'btn btn-primary']) !!}
+              
+                {{ Form::button('<i class="glyphicon glyphicon-save"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-large'] )  }}
+                {!!Form::button('<i class="glyphicon glyphicon-repeat"></i>', ['type'=>'reset','class'=>'btn btn-warning btn large']) !!}
              </div>
 
            {!! Form::close() !!}

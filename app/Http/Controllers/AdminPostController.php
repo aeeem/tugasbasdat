@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Kepolisian\Http\Requests\PostCreateRequest;
 use Kepolisian\Http\Requests\PostEditRequest;
 use Kepolisian\Post;
+use Alert;
 use Kepolisian\User;
 class AdminPostController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminPostController extends Controller
     public function index()
     {  
         $post = Post::all();
+      
         return view('admin.posts.index',compact('post'));
     }
 
@@ -42,6 +44,7 @@ class AdminPostController extends Controller
        $user=Auth::user();
     
         $user->posts()->create($input);
+          Alert::success("tersimpan");
         return redirect('/admin/post');
     }
 
@@ -91,6 +94,8 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::findOrFail($id)->delete();
+        Alert::success("succes deleted");
+        return  back();
     }
 }
