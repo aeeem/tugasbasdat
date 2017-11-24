@@ -26,8 +26,10 @@
       <td>{{ $post->updated_at->diffForHumans()}}</td>
      <td><a href="{{Route('post.edit',$post->id)}}" class="btn-link2"> <span class="glyphicon glyphicon-edit"></span></a></td>
 {!! Form::close() !!}
-      {!! Form::open(['method' => 'delete','id' => 'hapus','class' => 'delete', 'action'=>['AdminPostController@destroy',$post->id]]) !!} 
-     <td>{!!Form::button('<i class="glyphicon glyphicon-remove"></i>', ['id'=>'delete','data-file'=>'delete'.$post->id,'class'=>'btn-link','type'=>'submit']) !!}</td> 
+
+      {!! Form::open(['method' => 'delete','id' => 'hapus','onsubmit' => 'return ConfirmDelete()','class' => 'delete', 'action'=>['AdminPostController@destroy',$post->id]]) !!} 
+
+     <td>{!!Form::button('<i class="glyphicon glyphicon-remove"></i>', ['onsubmit' => 'return ConfirmDelete()','id'=>'delete','data-file'=>'delete'.$post->id,'class'=>'btn-link','type'=>'submit']) !!}</td> 
 
     
        {!! Form::close() !!}
@@ -37,8 +39,19 @@
 
 
    @endif
- {{-- @include('sweet::alert') --}}
-  
+ 
+   <script>
+
+  function ConfirmDelete()
+  {
+  var x = confirm("yakin ingin di hapus?");
+  if (x)
+    return true;
+  else
+    return false;
+  }
+
+</script>
 @stop
 
 

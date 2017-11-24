@@ -21,13 +21,13 @@ mix.js('resources/assets/js/app.js', 'public/js')
                 'resources/assets/css/libs/metisMenu.css',
                 'resources/assets/css/libs/sb-admin-2.css',
                 'resources/assets/css/libs/normalize.css',
-                'resources/assets/css/libs/pushy.css',
+                // 'resources/assets/css/libs/pushy.css',
                 'resources/assets/css/libs/demo.css',
 
             ], './public/css/libs.css')
 
             .scripts([
-                'node_modules/sweetalert2/dist/sweetalert2.all.min.js',
+               
                 'resources/assets/js/libs/jquery.js',
                 'resources/assets/js/libs/bootstrap.js',
                 'resources/assets/js/libs/metisMenu.js',
@@ -37,5 +37,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
             
 
             ], './public/js/libs.js')
+            .scripts( 'node_modules/sweetalert2/dist/sweetalert2.all.min.js', './public/js/extras.js')
 
  

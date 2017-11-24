@@ -1,0 +1,9 @@
+<meta name="token" content="{{csrf_token()}}">
+
+<a class="button-pointed-small"
+		data-delete="" 
+		data-title="Hapus Data Ini?" 
+		data-message="{{ $row->judul }}"
+		data-button-text="Hapus"
+    href="{{ route('dashboard.materi.destroy',$row->id) }}"
+		><span>Hapus</span></a>
