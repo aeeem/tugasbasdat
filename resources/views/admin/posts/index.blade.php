@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-
+    <link href="{{asset('css/extras.css')}}" rel="stylesheet">
  <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 <h1>users</h1>
  <table class="table">
@@ -39,7 +39,9 @@
 
 
    @endif
- 
+ <script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('js/extras.js')}}"></script>
    <script>
 
   function ConfirmDelete()

@@ -3,7 +3,7 @@
 
 
 
-
+ <link href="{{asset('css/select2.min.css')}}" rel="stylesheet">
 
 @section('content')
 
@@ -19,8 +19,14 @@
            </div>
 
             <div class="form-group">
-                {!! Form::label('kategori_id', 'Cateagory:') !!}
-                {!! Form::select('kategori_id   ', [''=>'Choose Categories'], null, ['class'=>'form-control'])!!}
+                {!! Form::label('tags[]', 'Tags:') !!}
+                <select class="form-control select2-multi" name="tags[]" multiple="multiple">
+                    
+                @foreach ($tag as $tags)
+                    <option value="{{$tags->id}}">{{$tags->nama}}</option>
+                @endforeach
+                </select>
+                
             </div>
 
 
@@ -57,6 +63,12 @@
     </div>
 
 
+<script src="{{asset('js/select2.min.js')}}"></script>
+<script type="text/javascript">
+    $('.select2-multi').select2();
 
+
+
+</script>
 
 @stop

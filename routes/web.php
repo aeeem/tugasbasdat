@@ -25,6 +25,10 @@ Route::get('/admin',function(){
 })->middleware('admin');
 Route::resource('admin/users','AdminUsersController')->middleware('admin');
 Route::resource('admin/post','AdminPostController')->middleware('admin');
+Route::resource('admin/tags','TagController')->middleware('admin');
+Route::Delete('/destroy', [
+    'uses' => 'MassDestroyer@destroy',
+]);
 // Route::get('/kepolisian',function(){
 // 	return view('admin.kepolisian');
 

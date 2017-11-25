@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Kepolisian\Http\Requests\PostCreateRequest;
 use Kepolisian\Http\Requests\PostEditRequest;
 use Kepolisian\Post;
+use Kepolisian\Tags;
 use Alert;
 use Kepolisian\User;
 class AdminPostController extends Controller
@@ -18,7 +19,7 @@ class AdminPostController extends Controller
     public function index()
     {  
         $post = Post::all();
-      
+        
         return view('admin.posts.index',compact('post'));
     }
 
@@ -29,7 +30,8 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-       return view('admin.posts.create');
+        $tag=Tags::all();
+       return view('admin.posts.create',compact('tag'));
     }
 
     /**
@@ -40,12 +42,14 @@ class AdminPostController extends Controller
      */
     public function store(PostCreateRequest $request)
     {
-      $input= $request->all();
-       $user=Auth::user();
+      $input= new Post($request->all());
+      $user=Auth::user();
     
-        $user->posts()->create($input);
-          Alert::success("tersimpan");
-        return redirect('/admin/post');
+      $user->posts()->save($input);
+      $tag=$request->tags;
+      $input->tags()->attach($tag);
+      Alert::success("tersimpan");
+      return redirect('/admin/post');
     }
 
     /**
@@ -68,7 +72,14 @@ class AdminPostController extends Controller
     public function edit($id)
     {
         $post=Post::findOrFail($id);
-        return view('admin.posts.edit',compact('post'));
+        $tags=Tags::all();
+
+        $tags2=array();
+        foreach ($tags as $tag) {
+            $tags2[$tag->id]=$tag->nama;
+        }
+   
+        return view('admin.posts.edit')->withPost($post)->withTags($tags2);
     }
 
     /**
@@ -82,7 +93,10 @@ class AdminPostController extends Controller
     {
         $input=$request->all();
         $post=Post::findOrFail($id);
-        $post->update($input);
+        $post->save($input);
+        $tag=$request->tags;
+        $post->tags()->Detach($tag);
+        $post->tags()->attach($tag);
         return redirect('/admin/post');
     }
 
@@ -94,8 +108,10 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
+
         Post::findOrFail($id)->delete();
-        Alert::success("succes deleted");
+        
+        Alert::success("success deleted");
         return  back();
     }
 }

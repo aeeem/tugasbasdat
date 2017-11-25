@@ -3,8 +3,7 @@
 
 
 
-
-
+ <link href="{{asset('css/select2.min.css')}}" rel="stylesheet">
 @section('content')
 
 
@@ -17,10 +16,15 @@
                  {!! Form::label('title', 'Judul:') !!}
                  {!! Form::text('title', null, ['class'=>'form-control'])!!}
            </div>
-
-            <div class="form-group">
-                {!! Form::label('kategory_id', 'Cateagory:') !!}
-                {!! Form::select('kategory_id   ', [''=>'Pilih Kategori'], null, ['class'=>'form-control'])!!}
+       <div class="form-group">
+                
+                    <div class="form-group">
+                       {{ Form::label('tags', 'Tags')}}
+                       {{  Form::select('tags[]', $tags  ,null ,['class' => 'form-control select2-multi',"multiple"=>"multiple"])}}
+                    </div>
+        
+                </select>
+                
             </div>
 
 {{-- 
@@ -50,13 +54,21 @@
 
 
     <div class="row">
-
+</div>
 
         @include('include.error')
 
 
 
-    </div>
+    
+
+<script src="{{asset('js/select2.min.js')}}"></script>
+<script type="text/javascript">
+    $('.select2-multi').select2();
+    $('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds())!!}).trigger('change');
+
+
+</script>
 
 
 

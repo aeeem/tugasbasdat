@@ -19,6 +19,8 @@
 
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+    <link href="{{asset('css/extras.css')}}" rel="stylesheet">
+
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -360,6 +362,7 @@
       </script>
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('js/libs.js')}}"></script>
+<script src="{{asset('js/extras.js')}}"></script>
 {{-- <script type="text/javascript">
    
     $(document).on('click','#delete', function(e) {
@@ -392,8 +395,7 @@
 </script> --}}
   
 @yield('footer')
-
- @include('sweet::alert')
+  @include('sweet::alert')
 </body>
 
 </html>

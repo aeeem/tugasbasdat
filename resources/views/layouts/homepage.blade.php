@@ -73,17 +73,22 @@
             ul.dropdown-lr {
   width: 500px;
 }
+.navbar {
+    /*display: inline-block;*/
+    margin-left: auto;
+    margin-right: auto;
+}
 ul.nav li a, ul.nav li a:visited {
-    color: white !important;
+    color: white ;
 }
 .navbar-nav > li > .dropdown-menu { background-color: black; }
-
+/*
 ul.nav li a:hover, ul.nav li a:active {
     color: rgba(242, 242, 242,.9) !important;
-}
-
+}*/
+ul
 ul.nav li.active{
-    color: white !important;
+    color: blue ;
 }
 
 #login-dp .form-group {
@@ -117,13 +122,23 @@ ul.nav li.active{
    color: ; /*Change active text color here*/
     }
 
-       li:hover{
-        background-color:  grey;
-       }
+      
 .login{
 
 
     color: black;
+}
+#login-dp .help-block {
+    font-size: 11px;
+}
+.help-block {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #737373;
+}
+a.this :hover{
+    color: white;
 }
         </style>
     </head>
@@ -132,7 +147,7 @@ ul.nav li.active{
         <nav class="navbar navbar-inverse">
         <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href="#">Kepolisian</a>
+        <a class="navbar-brand" href="#"><strong>Kepolisian</strong></a>
     </div>
     <div style="position: relative;">
         
@@ -147,7 +162,7 @@ ul.nav li.active{
                     @else
                     <li class="dropdown login">
 
-                       <a href="#"  data-toggle="dropdown"> Login <i class="   glyphicon glyphicon-log-in"></i><span class="caret"></span></a>
+                       <a href="#"  data-toggle="dropdown"> <strong> Login <i class="   glyphicon glyphicon-log-in"></i></strong><span class="caret"></span></a>
                      
                            
                     <ul id="login-dp" class="dropdown-menu pull-right" >
@@ -155,7 +170,7 @@ ul.nav li.active{
                          <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" style="margin-bottom: 0px;">
                             <div>
                             <label for="email" id="email" class="col-md-11 control-label">E-Mail Address</label>
                         </div>
@@ -185,7 +200,7 @@ ul.nav li.active{
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-12 col-md-offset-0">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -195,11 +210,13 @@ ul.nav li.active{
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-12 col-md-offset-0 " style="width:100%">
+                                <button type="submit" class="btn-block btn-info" style=""><strong>
                                     Login
+                                    </strong>
                                 </button>
-
+                            </div>
+<div class="col-md-12 col-md-offset-0">
                                 <a class="btn btn-link" style="color : black" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
@@ -212,8 +229,8 @@ ul.nav li.active{
                     
                         
                     </li>
-                    <li>                  
-                        <a href="{{ route('register') }}">Register</a>
+                    <li class="dropdown login" >                  
+                        <a href="{{ route('register') }}" class="this" style="color: #9d9d9d"> <strong>Register</strong></a>
 
                     </li>
                     @endauth
