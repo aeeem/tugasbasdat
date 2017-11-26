@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','sedang_aktif',
+        'name', 'email', 'password','role_id','sedang_aktif','alamat','sektor',
     ];
 
     /**
@@ -39,6 +39,10 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasmany('Kepolisian\Post');
         }
+    public function sektor(){
+        return $this->belongsTo('Kepolisian\kantorpolisi');
+        }
+
 
 
     public function IsAdmin(){

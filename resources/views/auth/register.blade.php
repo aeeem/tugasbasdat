@@ -59,6 +59,35 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
+                        
+                        </div>
+                        {{-- buatan aem bukan default laravel --}}
+                         <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
+                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+
+                            <div class="col-md-6">
+                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
+                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+
+                            <div class="col-md-6">
+                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group">

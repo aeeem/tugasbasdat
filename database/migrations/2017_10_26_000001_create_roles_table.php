@@ -22,6 +22,15 @@ class CreateRolesTable extends Migration
         
             ['name' => 'admin'], ['name' => 'user',]
         ]);
+     
+       Schema::create('kantorpolisi', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama');
+            $table->string('kota');
+            $table->string('provinsi');
+            $table->text('alamat');
+            $table->string('sektor');
+        });
     }
 
     /**

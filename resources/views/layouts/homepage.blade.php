@@ -67,7 +67,7 @@
                 margin-bottom: 30px;
             }
             .warna{
-                background-color: grey
+                background-color: #222222;
                 color: black;
             }
             ul.dropdown-lr {
@@ -140,27 +140,57 @@ ul.nav li.active{
 a.this :hover{
     color: white;
 }
+#wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
         </style>
     </head>
     <body>
-        @yield('content')
-        <nav class="navbar navbar-inverse">
+        <div id="wrapper">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
         <div class="navbar-header">
         <a class="navbar-brand" href="#"><strong>Kepolisian</strong></a>
     </div>
     <div style="position: relative;">
         
-     <ul class="nav navbar-nav top-right m-b-md warna link">
+     <ul class="nav navbar-nav top-right topnav m-b-md warna link">
             @if (Route::has('login'))
                 
                     @auth
                     <li class="active">
 
                         <a href="{{ url('/home') }}" >Home</a>
+
                     </li>
+                     <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  {{Auth::user()->name}}  <i class="fa fa-user fa-fw "></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                   <strong>
+                       
+                    <li><a href="{{ route('users.index') }} "><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                     <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                        </form>
+                    <i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                    </li>
+                   </strong>
+
+                   
                     @else
-                    <li class="dropdown login">
+                    <li class="dropdown login right">
 
                        <a href="#"  data-toggle="dropdown"> <strong> Login <i class="   glyphicon glyphicon-log-in"></i></strong><span class="caret"></span></a>
                      
@@ -241,9 +271,28 @@ a.this :hover{
   </div>
 </div>
 </nav>
+</div>
 
-            
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"></h1>
+
+         @yield('content')
+         
             </div>
+            <!-- /.col-lg-12 -->
         </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+           
+            
     </body>
 </html>

@@ -9,9 +9,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['uses'=>'Welcome_Controller@welcome'] );
+Route::get('post/{id}', 'Welcome_Controller@show');
 
 Auth::routes();
 
@@ -26,9 +25,8 @@ Route::get('/admin',function(){
 Route::resource('admin/users','AdminUsersController')->middleware('admin');
 Route::resource('admin/post','AdminPostController')->middleware('admin');
 Route::resource('admin/tags','TagController')->middleware('admin');
-Route::Delete('/destroy', [
-    'uses' => 'MassDestroyer@destroy',
-]);
+Route::resource('admin/kantor','KantorPolisiController')->middleware('admin');
+
 // Route::get('/kepolisian',function(){
 // 	return view('admin.kepolisian');
 

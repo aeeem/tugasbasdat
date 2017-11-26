@@ -1,6 +1,7 @@
 @extends('layouts.homepage')
 
 @section('content')
+	{{-- {{dd($posts)}} --}}
 <style >
 	
 .article {
@@ -15,17 +16,18 @@
 	font-weight: 400;
 }
 .panel-default > .panel-heading {
-    color:#f2f2f2 ;
+    color:#ffffff ;
     background-color:#4d4d4d;
     border-color: #ddd;
 }
 </style>
 
+
 <div class="row">
 	<div class="col-md-3">
 <div class="panel panel-default" style="size: 300px">
 	<div class="panel-heading">
-	<table style="align-content: center;" ><strong>ini table</strong> </table>
+	<table style="align-content: center;" ><strong >ini table</strong> </table>
 	</div>
 	<div class="panel-body" style="max-width: : 10;">
 		<h1>this is body</h1>
@@ -34,14 +36,14 @@
 </div>
 {{-- post --}}
 	<div class="col-md-6">
-	@if($post)
-	@foreach ( $post as $posts)
-		{{-- expr --}}
+		
 	<div class="panel panel-default article" style="size: 500px">
 
-	<div class="panel-heading" style="font-weight: 900">
-		
+	<div class="panel-heading" >
+		<h2>
+			
 {{$posts->title}}
+		</h2>
 		
 	</div>
 	<div class="panel-body panelarticle" style="max-width: : 10;">
@@ -50,19 +52,15 @@
 		<tr>
 		<td>
 			
-	 <p class="ArticleBody">
-            {{ str_limit(strip_tags($posts->body), 100) }}
-            @if (strlen(strip_tags($posts->body)) > 100)
-              ... <a href="{{ action('Welcome_Controller@show', $posts->id) }}" class="btn btn-info btn-sm">Read More</a>
-            @endif
+	 <p class="ArticleBody" >
+          {{$posts->body}}
         </p>
 		</td>	
 		</tr>
 		</tbody>
 	</div>
 	</div>
-	@endforeach
-	@endif
+	
 
 </div>
 {{-- panel kanan --}}
@@ -78,6 +76,9 @@
 </div>
 </div>
 </div>
+
+
+
 
 
 
