@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('sedang_aktif',[1,0])->default(1);
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('alamat');
+            $table->text('alamat');
             $table->integer('sektor')->unsigned()->index()->nullable();
             $table->foreign('sektor')->references('id')->on('kantorpolisi')->onDelete('cascade');
             $table->rememberToken();

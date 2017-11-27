@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{{-- {{dd($kantor)}} --}}
 @section('content')
 <div class="container">
     <div class="row">
@@ -66,7 +66,7 @@
                             <label for="alamat" class="col-md-4 control-label">Alamat</label>
 
                             <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+                                <textarea id="alamat" type="textarea" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus></textarea>
 
                                 @if ($errors->has('alamat'))
                                     <span class="help-block">
@@ -75,21 +75,36 @@
                                 @endif
                             </div>
                         </div>
+
+                         <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
+                            <label for="alamat" class="col-md-4 control-label">Kantor Polisi Terdekat</label>
+                                <div class="col-md-6">
+                        @if ($kantor)
+                            @foreach ($kantor as $kantors)
+                           
+
                         
-                        <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
-                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+       <select class="js-source-states form-control" id="sektor" name="sektor">
+  <optgroup label="{{$kantors->kota}}">
+    <option value="{{$kantors->id}}"><p>{{$kantors->nama}},   <i>{{$kantors->alamat}}</i></p></option>
+  </optgroup>
+</select>
+</div>
+</div>
 
-                            <div class="col-md-6">
-                                <input id="alamat" type="text" class="form-control" name="alamat" value="{{ old('alamat') }}" required autofocus>
+                        @endforeach
+                        @endif
 
-                                @if ($errors->has('alamat'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('alamat') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
+<script type="text/javascript">
+    $(document).ready(function() {
+      // Initialize "states" example
+      var $states = $(".js-source-states");
+      var statesOptions = $states.html();
+      $states.remove();
+    
+      $(".js-states").append(statesOptions);
+    });
+</script>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
