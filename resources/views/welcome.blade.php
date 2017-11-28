@@ -40,8 +40,8 @@
 	<div class="panel panel-default article" style="size: 500px">
 
 	<div class="panel-heading" style="font-weight: 900">
-		
-{{$posts->title}}
+		<a href="{{action('Welcome_Controller@show', $posts->id)}}" style="color: #f2f2f2" >
+{{$posts->title}}</a>
 		
 	</div>
 	<div class="panel-body panelarticle" style="max-width: : 10;">

@@ -43,6 +43,10 @@ class User extends Authenticatable
         return $this->belongsTo('Kepolisian\kantorpolisi');
         }
 
+     public function laporan(){
+        return $this->hasmany('Kepolisian\laporan');
+        }
+
 
 
     public function IsAdmin(){
