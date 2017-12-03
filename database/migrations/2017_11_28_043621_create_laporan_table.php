@@ -15,6 +15,13 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama_laporan');
+            $table->integer('jenis_laporan')->index()->unsigned();
+            $table->foreign('jenis_laporan')->references("id")->on("kejadian")->onDelete('cascade');
+            $table->integer('user_id')->index()->unsigned();
+            $table->foreign('user_id')->references("id")->on("users")->onDelete('cascade');
+            $table->enum('diterima',['sudah','belum'])->default('belum');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

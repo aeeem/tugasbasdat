@@ -25,6 +25,10 @@ class CreateUsersTable extends Migration
             $table->text('alamat');
             $table->integer('sektor')->unsigned()->index()->nullable();
             $table->foreign('sektor')->references('id')->on('kantorpolisi')->onDelete('cascade');
+            $table->integer('nomor_ktp');
+            $table->enum('agama',['islam','kristen','hindu','budha','katholik','konghuchu']);
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
             $table->rememberToken();
             $table->timestamps();
             

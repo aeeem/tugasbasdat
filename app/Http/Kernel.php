@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         // 'Admin' => \Kepolisian\Http\Middleware\Admin::class,
         'admin' => \Kepolisian\Http\Middleware\administrator::class,
+        'polisi' => \Kepolisian\Http\Middleware\Polisi::class,
     ];
 }

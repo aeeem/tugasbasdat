@@ -95,8 +95,63 @@
                             </div>
 
                         </div>
+                          <div class="form-group" >
+                          
+                         <label for="sektor" class="col-md-4 control-label">Kantor Polisi Terdekat</label>
+                            <div class="col-md-6">
 
-                       
+                            <select class="form-control select2-multi" name="agama" id="agama" >
+                            <option value="islam">Islam</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="hindu"> Hindu</option>
+                            <option value="katholik">Katolik</option>
+                            <option value="konghuchu">KongHuChu</option>
+                            </select>
+                            
+                            </div>
+
+                        </div>
+
+                      <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
+                        <label for="nomor_ktp" class="col-md-4 control-label">Nomor KTP</label>
+
+                            <div class="col-md-6">
+                                <input id="nomor_ktp" type="text" class="form-control" name="nomor_ktp" value="{{ old('nomor_ktp') }}" required autofocus></input>
+
+                             @if ($errors->has('nomor_ktp'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('nomor_ktp') }}</strong>
+                                </span>
+                             @endif
+                            </div>
+                    </div>
+                             <div class="form-group{{ $errors->has('') ? ' has-error' : '' }}">
+                        <label for="tempat_lahir" class="col-md-4 control-label">Tempat Lahir</label>
+
+                            <div class="col-md-6">
+                                <input id="tempat_lahir" type="text" class="form-control" name="tempat_lahir" value="{{ old('tempat_lahir') }}" required autofocus></input>
+
+                             @if ($errors->has('tempat_lahir'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('tempat_lahir') }}</strong>
+                                </span>
+                             @endif
+                            </div>
+                    </div>
+                    <div class="form-group">
+                         <label for="tempat_lahir" class="col-md-4 control-label">Tanggal Lahir</label>
+
+                        <div class="col-md-6">
+                            
+                         <input type='date' name="tanggal_lahir" />
+
+
+
+                        </div>
+
+
+                    </div>
+
 
            <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

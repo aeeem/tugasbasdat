@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role_id','sedang_aktif','alamat','sektor',
+        'name', 'email', 'password','role_id','sedang_aktif','alamat','sektor','tanggal_lahir','agama','tempat_lahir','nomor_ktp'
     ];
 
     /**
@@ -37,14 +37,14 @@ class User extends Authenticatable
 
 
     public function posts(){
-        return $this->hasmany('Kepolisian\Post');
+        return $this->hasmany('Kepolisian\Post','');
         }
-    public function sektor(){
-        return $this->belongsTo('Kepolisian\kantorpolisi');
+    public function kantorpolisi(){
+        return $this->belongsTo('Kepolisian\Kantorpolisi','id');
         }
 
      public function laporan(){
-        return $this->hasmany('Kepolisian\laporan');
+        return $this->hasmany('Kepolisian\laporan','user_id');
         }
 
 
@@ -60,6 +60,18 @@ class User extends Authenticatable
 
         return false;
 }
+    public function Polisi(){
+       if( (($this->role->name == "Polisi")||($this->role->name == "POLISI")) && $this->sedang_aktif == 1){
+
+
+            return true;
+
+        }
+
+
+        return false;
+}
+
 }      
    
 

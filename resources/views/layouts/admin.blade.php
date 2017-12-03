@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Kepolisian</a>
+            <a class="navbar-brand" href="{{url('/')}}">Kepolisian</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -115,7 +115,7 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
+                 {{--    <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
@@ -125,20 +125,20 @@
                                 </span>
                         </div>
                         <!-- /input-group -->
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('users.index')}}">All Users</a>
+                                <a href="{{route('users.index')}}">Semua Users</a>
                             </li>
 
                             <li>
-                                <a href="{{route('users.create')}}">Create User</a>
+                                <a href="{{route('users.create')}}">Buat User</a>
                             </li>
                            
 
@@ -150,11 +150,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{route('post.index')}}">All Posts</a>
+                                <a href="{{route('post.index')}}">Semua Posts</a>
                             </li>
 
                             <li>
-                                <a href="{{route('post.create')}}">Create Post</a>
+                                <a href="{{route('post.create')}}">Buat Post</a>
                             </li>
 
                         </ul>
@@ -163,32 +163,25 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Tag<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/categories">All Categories</a>
+                                <a href="{{route('tags.index')}}">Semua Tag</a>
                             </li>
-
-                            <li>
-                                <a href="/categories/create">Create Category</a>
-                            </li>
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Kantor<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{route('kantor.index')}}">Semua Kantor</a>
                             </li>
-
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{route('kantor.create')}}">Buat Kantor</a>
                             </li>
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

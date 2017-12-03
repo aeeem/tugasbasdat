@@ -9,7 +9,7 @@
 
 
   <div class="form-group">
-   {!!  Form::label('nama', 'Kota')!!}
+   {!!  Form::label('nama', 'Nama Kantor')!!}
    {!!  Form::text('nama',null ,['class' => 'form-control'])!!}
     </div>
 

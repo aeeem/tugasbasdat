@@ -186,12 +186,14 @@ a.this :hover{
                         <a href="{{ url('/') }}" ><strong>Home</strong></a>
 
                     </li>
-
+                    <li>
+                        <a href="{{route('laporan.index')}}"><strong>Lihat Laporan <i class="glyphicon glyphicon-list-alt"></i></strong></a>
+                    </li>
                       <li>
                         <a href="{{route('posts.create')}}"><strong>Create Post <i class="glyphicon glyphicon-log-in"></i></strong></a>
                     </li>
                       <li>
-                        <a href="{{route('posts.create')}}" ><strong>List Post <i class="glyphicon glyphicon-log-in"></i></strong></a>
+                        <a href="{{route('posts.index')}}" ><strong>List Post <i class="glyphicon glyphicon-log-in"></i></strong></a>
                     </li>
                      <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -304,7 +306,6 @@ a.this :hover{
         <div class="row">
             <div class="col-lg-12">
                 
-         @yield('content')
          
             </div>
             <!-- /.col-lg-12 -->
@@ -316,16 +317,14 @@ a.this :hover{
 <!-- /#page-wrapper -->
 
 </div>
-
-           
-           <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
                     <script src="{{ asset('js/libs.js') }}"></script>
     <script src="{{asset('js/select2.min.js')}}"></script>
 
-<script type="text/javascript">
-    $('.select2-multi').select2();
+         @yield('content')
+           
+           
 
-</script>
                   
     </body>
 </html>

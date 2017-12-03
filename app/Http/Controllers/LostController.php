@@ -1,13 +1,11 @@
 <?php
 
 namespace Kepolisian\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Kepolisian\laporan;
-use Kepolisian\User;
-use Kepolisian\Http\Requests\LaporanRequest;
 
-class UserLaporanController extends Controller
+use Kepolisian\Lost;
+use Illuminate\Http\Request;
+
+class LostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class UserLaporanController extends Controller
      */
     public function index()
     {
-
-        $laporan = laporan::where('user_id','=', Auth::id())->get();
-        return view('user.Laporan.index')->withLaporan($laporan);
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class UserLaporanController extends Controller
      */
     public function create()
     {
-        return view('user.Laporan.create');
+        //
     }
 
     /**
@@ -37,23 +33,18 @@ class UserLaporanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LaporanRequest $request)
+    public function store(Request $request)
     {
-    $input= $request->all();
-      $user=Auth::user();
-      // dd($user,$input)
-      $user->laporan()->create($input);
-
-        return redirect('user/laporan');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \Kepolisian\Lost  $lost
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Lost $lost)
     {
         //
     }
@@ -61,10 +52,10 @@ class UserLaporanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \Kepolisian\Lost  $lost
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Lost $lost)
     {
         //
     }
@@ -73,10 +64,10 @@ class UserLaporanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Kepolisian\Lost  $lost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Lost $lost)
     {
         //
     }
@@ -84,10 +75,10 @@ class UserLaporanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Kepolisian\Lost  $lost
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Lost $lost)
     {
         //
     }

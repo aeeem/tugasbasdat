@@ -65,7 +65,7 @@ class UserPostController extends Controller
          if($post->user_id == Auth::id()){
 return view('user.post.show');
          }
-         return abort(404);
+         return abort(404); 
     }
 
     /**

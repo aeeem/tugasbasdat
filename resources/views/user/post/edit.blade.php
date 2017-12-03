@@ -17,7 +17,7 @@
     <h1>Edit Post</h1>
 
     <div class="row">
-         {!! Form::model($post, ['method' => 'patch', 'action'=>['AdminPostController@update',$post->id],'files'=>true]) !!}
+         {!! Form::model($post, ['method' => 'patch', 'action'=>['UserPostController@update',$post->id],'files'=>true]) !!}
 
            <div class="form-group">
                  {!! Form::label('title', 'Judul:') !!}
@@ -51,7 +51,7 @@
 
              <div class="form-group">
               
-                {{ Form::button('<i class="glyphicon glyphicon-save"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-large'] )  }}
+                {{ Form::button('<i class="glyphicon glyphicon-floppy-disk"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-large'] )  }}
                 {!!Form::button('<i class="glyphicon glyphicon-repeat"></i>', ['type'=>'reset','class'=>'btn btn-warning btn large']) !!}
              </div>
 
@@ -66,10 +66,11 @@
         @include('include.error')
 
 
-
+    <script src="{{asset('js/select2.min.js')}}"></script>
     
-
-
-
+           <script type="text/javascript">
+    $('.select2-multi').select2();
+    $('.select2-multi').select2().val({!! json_encode($post->tags()->allRelatedIds())!!}).trigger('change');
+</script>
 
 @stop

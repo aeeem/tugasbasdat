@@ -44,7 +44,7 @@
 
              <div class="form-group">
               
-                {{ Form::button('<i class="glyphicon glyphicon-save"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-large'] )  }}
+                {{ Form::button('<i class="glyphicon glyphicon-floppy-disk"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-large'] )  }}
                 {!!Form::button('<i class="glyphicon glyphicon-repeat"></i>', ['type'=>'reset','class'=>'btn btn-warning btn large']) !!}
              </div>
 

@@ -53,6 +53,9 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'alamat'=>'required|string|max:255',
             'sektor'=> 'required',
+            'tanggal_lahir'=>'required',
+            'nomor_ktp'=>'required',
+            'tanggal_lahir'=>'required'
         ]);
     }
 
@@ -72,6 +75,10 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'alamat' => $data['alamat'],
             'sektor' => $data['sektor'],
+            'tanggal_lahir'=>$data['tanggal_lahir'],
+            'agama'=>$data['agama'],
+            'nomor_ktp'=>$data['nomor_ktp'],
+            'tempat_lahir'=>$data['tempat_lahir'],
         ]);
     }
 }

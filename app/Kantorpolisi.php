@@ -15,7 +15,8 @@ class Kantorpolisi extends Model
     	'sektor',
     	'nama',];
  protected $table = 'kantorpolisi';
+
     public function polisi(){
-return $this->hasmany('Kepolisian/User');
+return $this->hasmany('Kepolisian\User','sektor');
     }
 }
